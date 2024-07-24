@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.productListContainer {
+  width: 100%;
+  padding: 20px;
+}
+.productList {
+  max-width: 1900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.productList table {
+  width: 70%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.productList table h1 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.productList table thead tr th {
+  padding: 10px 0;
+  background-color: tomato;
+  color: white;
+  font-size: 20px;
+}
+
+.productList table tbody tr:nth-child(odd) {
+  background-color: silver;
+}
+.productList table tbody tr:nth-child(even) {
+  background-color: gray;
+}
+
+.productList table tbody tr td {
+  padding: 8px;
+  font-size: 16px;
+  text-align: center;
+  height: 100px;
+}
+
+.productList table tbody tr td img {
+  height: 100px;
+}
