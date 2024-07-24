@@ -43,7 +43,7 @@
 	<body>
 		<section class="add_category_container">
 			<div class="category_form_container">
-				<form action="category_update.php" method="POST"  class="category_form">
+				<form action="category_list.php" method="POST"  class="category_form">
 				 <div class="form-item">
 					<label> Category:  </label>
 					<input type="text" name="category" placeholder="category name" id="category_flied">
@@ -60,7 +60,7 @@
 					echo "<P> Delete successful </p>";
 				  }
 				  if(isset($_GET['res'])){
-					echo "<p> update successful </p>"
+					echo "<p> update successful </p>";
 				  }
 				?>
 				<table>
