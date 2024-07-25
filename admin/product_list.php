@@ -49,7 +49,7 @@
                     <td>$product[category]</td>
                     <td>$product[product_details]</td>
                     <td><img src='$product[product_img]'></td>
-                    <td><a href=''>Edit</a></td>
+                    <td><a href='product_upload.php?edit=$product[product_id]'>Edit</a></td>
                     <td><a href=''>Delete</a></td>
                 </tr>
                         ";
