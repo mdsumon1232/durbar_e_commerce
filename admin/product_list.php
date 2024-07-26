@@ -49,8 +49,8 @@
                     <td>$product[category]</td>
                     <td>$product[product_details]</td>
                     <td><img src='$product[product_img]'></td>
-                    <td><a href='product_upload.php?edit=$product[product_id]'>Edit</a></td>
-                    <td><a href=''>Delete</a></td>
+                    <td><a href='product_update.php?id=$product[product_id]'>Edit</a></td>
+                    <td><a href='product_delete.php?id=$product[product_id]'>Delete</a></td>
                 </tr>
                         ";
                     
