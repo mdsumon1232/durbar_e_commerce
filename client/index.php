@@ -60,7 +60,7 @@
                    
 					<?php
                      
-					 $select_product = "SELECT * FROM product";
+					 $select_product = "SELECT product .* , category.category FROM category INNER JOIN product ON product.category_id = category.id";
 					 $product_query = $conn -> query($select_product);
 					 if($product_query -> num_rows >0){
 						while($product_data = mysqli_fetch_array($product_query)){
@@ -68,9 +68,10 @@
 									<div class='cart'>
 									<img src='$product_data[product_img]' >
 									<h3> $product_data[product_name] </h3>
+									<p> $product_data[product_details] </p>
 									<p> price: $product_data[product_price] $ </p>
-									<p> Brand : No brand </p>
-									<p> Category: travel Accessories </p>
+									<p> Brand : $product_data[product_band] </p>
+									<p> Category: $product_data[category] </p>
 									<button class='cart_btn'> Add to cart </button>
 									</div>
 								";
