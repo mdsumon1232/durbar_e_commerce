@@ -60,23 +60,29 @@
                    
 					<?php
                      
-					 $select_product = "SELECT * FROM product";
-					 $product_query = $conn -> query($select_product);
-					 if($product_query -> num_rows >0){
-						while($product_data = mysqli_fetch_array($product_query)){
-							echo "
-									<div class='cart'>
-									<img src='$product_data[product_img]' >
-									<h3> $product_data[product_name] </h3>
-									<p> price: $product_data[product_price] $ </p>
-									<p> Brand : No brand </p>
-									<p> Category: travel Accessories </p>
-									<button class='cart_btn'> Add to cart </button>
-									</div>
-								";
-						}
-					 } 
-					 else"<p> NO product available </p>"
+				if(isset($_GET['id'])){
+					$category_id = $_GET['id'];
+					$select_product = "SELECT * FROM product WHERE category_id = '$category_id'";
+					$product_query = $conn -> query($select_product);
+					if($product_query -> num_rows >0){
+					   while($product_data = mysqli_fetch_array($product_query)){
+						   echo "
+								   <div class='cart'>
+								   <img src='$product_data[product_img]' >
+								   <h3> $product_data[product_name] </h3>
+								   <p> price: $product_data[product_price] $ </p>
+								   <p> Brand : No brand </p>
+								   <p> Category: travel Accessories </p>
+								   <button class='cart_btn'> Add to cart </button>
+								   </div>
+							   ";
+					   }
+					} 
+					else {
+						   echo "<p> NO product available </p>";
+					} 
+				}
+					
 
 					?>
 				   
