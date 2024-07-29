@@ -21,7 +21,8 @@
 			<div class="main-container">
 				<div class="left-side">
 					<h2> Category </h2>
-					<ul> 
+					<ul>  
+						<li><a href="index.php">All Product</a></li>
 						<?php
 
 							$select_category = "SELECT * FROM category";

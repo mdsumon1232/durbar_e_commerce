@@ -12,6 +12,7 @@ require('../database_config/config.php');
     <link rel="stylesheet" href="cart.css">
 </head>
 <body>
+    <?php require('header.php') ?>
     <section class="cart_container">
         <div class="cart_items">
             <?php
@@ -31,7 +32,7 @@ require('../database_config/config.php');
                             <p> '.$fetch_product['quantity'].' </p>
                         </div>
                         <h4 class="product_price">'. $fetch_product['product_price'] * $fetch_product['quantity'].' $</h4>
-                        <a href="cart_product_delete.php?id='.$fetch_product['cart_id'] .'" class="delete_btn">delete</a>
+                        <a href="cart_product_delete.php?id='.$fetch_product['cart_id'] .'" class="delete_btn">d</a>
                     </div>
                 ';
                 $sub_total +=  $fetch_product['product_price'] * $fetch_product['quantity'];

@@ -1,3 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  opacity: 0.4;
+}
+::-webkit-scrollbar-track {
+  background: silver;
+}
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 3px;
+}
+
 /* main container */
 
 .main-section {
@@ -9,11 +29,13 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 4fr;
+  position: relative;
 }
 .left-side {
   padding: 20px;
-  height: calc(100vh - 80px);
   background-color: gray;
+  position: sticky;
+  top: 0;
 }
 .left-side h2 {
   font-size: 25px;
@@ -31,14 +53,16 @@
 }
 .right_side {
   padding: 20px;
+  height: calc(100vh - 80px);
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .cart {
-  width: 400px;
-  height: 500px;
+  height: 450px;
   border: 1px solid gray;
   border-radius: 5px;
   position: relative;
@@ -66,7 +90,6 @@
   border: 0 solid;
   font-size: 18px;
   cursor: pointer;
-  letter-spacing: 2px;
   position: absolute;
   bottom: 0;
   border-bottom-left-radius: 5px;
@@ -80,14 +103,28 @@
     display: block;
   }
 
+  .left-side h2 {
+    text-align: center;
+  }
+
   .left-side ul {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
+    justify-content: center;
   }
 
   .left-side ul li {
-    font-size: 16px;
+    position: relative;
+  }
+
+  .left-side ul li::after {
+    content: "";
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    right: -10px;
+    background-color: black;
   }
 
   .right_side {
@@ -97,5 +134,67 @@
 
   .cart {
     width: 100%;
+  }
+}
+
+/* Tablet */
+@media (min-width: 576px) and (max-width: 768px) {
+  .main-container {
+    display: block;
+  }
+
+  .left-side h2 {
+    text-align: center;
+  }
+
+  .left-side ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .left-side ul li {
+    position: relative;
+  }
+
+  .left-side ul li::after {
+    content: "";
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    right: -10px;
+    background-color: black;
+  }
+
+  .right_side {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+
+  .cart {
+    width: 100%;
+  }
+}
+
+/* Laptop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: 4fr 8fr;
+  }
+  .right_side {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cart {
+    width: auto;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .right_side {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cart {
+    width: auto;
   }
 }

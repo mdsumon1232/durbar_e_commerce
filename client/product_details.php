@@ -1,4 +1,7 @@
-
+<?php 
+  session_start();
+ 
+?>
 
 
 <?php  require('../database_config/config.php')  ?>
@@ -11,6 +14,7 @@
     <link rel="stylesheet" href="product_details.css">
 </head>
 <body>
+    <?php  require('./header.php') ?>
     <div class="main_section">
         <div class="product_detail_container">
             <?php

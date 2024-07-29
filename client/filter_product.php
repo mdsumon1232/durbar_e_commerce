@@ -1,6 +1,6 @@
 <?php
 	require('../database_config/config.php');
-
+	require('./header.php'); 
 ?>
 
 <!DOCTYPE HTML>
@@ -12,32 +12,13 @@
 		<link rel="stylesheet" href="style.css" >
 	</head>
 	<body>
-		<header class="header">
-			<nav class="nav">
-			<div class ="logo">
-				<h1> <a href="index.php"> durbar-commerce </a> </h1> </div>
-				<button id="search_btn"> search </button>
-				<div class="search-box" id="search_input"> 
-					<input type="text" placeholder="search here" >
-					<button class="search-btn"> search </button>
-			</div>
-			<div class="menu" id="menu">
-				<ul> 
-					<li> <a href="index.html"> Home </a> </li>
-					<li> <a href="index.html"> Category </a> </li>
-					<li> <a href="index.html"> Ordered </a> </li>
-					<li> <a href="index.html"> Cart </a> </li>
-				</ul>
-			</div>
-			<p id="toggle"> menu </p>
-		</nav>
-		</header>
 		 
 		<section class="main-section">
 			<div class="main-container">
 				<div class="left-side">
 					<h2> Category </h2>
 					<ul> 
+						<li><a href="index.php">All Product</a></li>
 						<?php
 
 							$select_category = "SELECT * FROM category";
