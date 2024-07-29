@@ -63,6 +63,7 @@ $total = $subTotal + $shipping;
     <link rel="stylesheet" href="checkout.css">
 </head>
 <body>
+    <?php require('header.php') ?>
     <section class="cart_container">
         <div class="cart_items">
             <div class="payment_method">

@@ -12,7 +12,6 @@
 
 .payment_method {
   width: 60%;
-  border: 1px solid red;
 }
 .receiver_information {
   width: 90%;
@@ -54,4 +53,22 @@
   background-color: tomato;
   border: 0 solid;
   border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .payment_method {
+    width: 100%;
+  }
+  .payment_system {
+    width: auto;
+  }
+  .payment_system p {
+    display: inline;
+  }
+  .receiver_information {
+    width: 100%;
+  }
+  .form {
+    width: 100%;
+  }
 }
