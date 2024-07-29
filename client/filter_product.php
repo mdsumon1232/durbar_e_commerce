@@ -15,7 +15,7 @@
 		<header class="header">
 			<nav class="nav">
 			<div class ="logo">
-				<h1> <a href="index.html"> durbar-commerce </a> </h1> </div>
+				<h1> <a href="index.php"> durbar-commerce </a> </h1> </div>
 				<button id="search_btn"> search </button>
 				<div class="search-box" id="search_input"> 
 					<input type="text" placeholder="search here" >

@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  width: 100%;
+  padding: 20px;
+  background-color: silver;
+}
+.nav {
+  max-width: 1900px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo h1 a {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.search-box {
+  width: 40%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid red;
+  border-radius: 5px;
+}
+.search-box input {
+  width: 80%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  letter-spacing: 2px;
+  font-size: 16px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.search-btn {
+  width: 20%;
+  height: 100%;
+  border: 0 solid;
+  outline: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  background-color: tomato;
+}
+#search_btn {
+  padding: 5px 10px;
+  border: 0 solid;
+  letter-spacing: 1px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+}
+
+.menu ul li {
+  margin-right: 15px;
+  list-style: none;
+  position: relative;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+}
+
+#toggle {
+  display: none;
+}
+
+/*responsive for mobile*/
+
+@media screen and (max-width: 576px) {
+  .header {
+    position: relative;
+  }
+  .logo h1 a {
+    font-size: 20px;
+  }
+
+  #search_btn {
+    display: block;
+  }
+
+  .search-box {
+    width: 80%;
+    position: absolute;
+    top: 100%;
+    display: none;
+  }
+
+  #toggle {
+    display: block;
+  }
+  .header {
+    position: relative;
+  }
+  .menu {
+    position: absolute;
+    right: 1000px;
+    top: 100%;
+    background-color: silver;
+    padding: 0 20px;
+  }
+  .menu ul {
+    display: block;
+  }
+  .menu ul li {
+    margin-bottom: 15px;
+  }
+}

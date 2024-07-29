@@ -1,6 +1,10 @@
 <?php
+	session_start();
 	require('../database_config/config.php');
-
+	
+	if(!isset($_SESSION['user']) && empty($_SESSION['user'])){
+		header('location:login.php');
+	}
 ?>
 
 <!DOCTYPE HTML>
@@ -12,27 +16,7 @@
 		<link rel="stylesheet" href="style.css" >
 	</head>
 	<body>
-		<header class="header">
-			<nav class="nav">
-			<div class ="logo">
-				<h1> <a href="index.html"> durbar-commerce </a> </h1> </div>
-				<button id="search_btn"> search </button>
-				<div class="search-box" id="search_input"> 
-					<input type="text" placeholder="search here" >
-					<button class="search-btn"> search </button>
-			</div>
-			<div class="menu" id="menu">
-				<ul> 
-					<li> <a href="index.html"> Home </a> </li>
-					<li> <a href="index.html"> Category </a> </li>
-					<li> <a href="index.html"> Ordered </a> </li>
-					<li> <a href="index.html"> Cart </a> </li>
-				</ul>
-			</div>
-			<p id="toggle"> menu </p>
-		</nav>
-		</header>
-		 
+		<?php  require('../client/header.php') ?>
 		<section class="main-section">
 			<div class="main-container">
 				<div class="left-side">
@@ -59,7 +43,6 @@
 				<div class="right_side">
                    
 					<?php
-                     
 					 $select_product = "SELECT product .* , category.category FROM category INNER JOIN product ON product.category_id = category.id";
 					 $product_query = $conn -> query($select_product);
 					 if($product_query -> num_rows >0){
@@ -68,11 +51,11 @@
 									<div class='cart'>
 									<img src='$product_data[product_img]' >
 									<h3> $product_data[product_name] </h3>
-									<p> $product_data[product_details] </p>
+									<p class=''> $product_data[product_details] </p>
 									<p> price: $product_data[product_price] $ </p>
 									<p> Brand : $product_data[product_band] </p>
 									<p> Category: $product_data[category] </p>
-									<button class='cart_btn'> Add to cart </button>
+									<a href='product_details.php?id=$product_data[product_id]'> <button class='cart_btn'> Details </button> </a>
 									</div>
 								";
 						}
@@ -87,6 +70,5 @@
 			</div>
 		</section>
 		 
-		<script src="menu.js"> </script>
 	</body>
 </html>

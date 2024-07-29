@@ -1,0 +1,57 @@
+.payment_system {
+  width: 60%;
+  margin: 20px auto;
+}
+.payment_system p {
+  font-size: 20px;
+  display: inline;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: silver;
+}
+
+.payment_method {
+  width: 60%;
+  border: 1px solid red;
+}
+.receiver_information {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid black;
+}
+.form h2 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.form_item {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form_item label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.form_item input {
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+  letter-spacing: 2px;
+}
+.order_btn {
+  padding: 10px 30px;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  background-color: tomato;
+  border: 0 solid;
+  border-radius: 5px;
+}
