@@ -13,8 +13,17 @@
           $user_data = mysqli_fetch_array($query);
           $check_email = password_verify($password , $user_data['password']);
           if($check_email){
-            header('location: index.php');
             $_SESSION['user'] = $user_data;
+            header('location: index.php');
+             
+           if(isset($_POST['remember'])){
+            $token = bin2hex(random_bytes(16));
+            setcookie('remember' , $token , time() + (86400 * 30));
+
+            $update_token = "UPDATE user SET remember_token = '$token' WHERE email = '$email'";
+            $conn -> query($update_token);
+           }
+
           }
           else{
             $message ="wrong password";
@@ -48,6 +57,10 @@
                 <div class="form_item">
                     <label for="">Password</label>
                     <input type="password" name="password" placeholder="Enter Your Password" require>
+                </div>
+                <div>
+                    <input type="checkbox" id="checkbox" name='remember'> 
+                    <label for="checkbox">Remember Me</label>
                 </div>
                 <div>
                     <?php echo isset($_POST['login']) ? "<p>" . $message . "</p>" : ""  ?>

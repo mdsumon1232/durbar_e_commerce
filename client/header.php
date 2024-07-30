@@ -1,4 +1,8 @@
 
+<?php
+  $profile = isset($_SESSION['user']['user_img']) ? $_SESSION['user']['user_img'] : '../images/user.png' ;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,8 +28,13 @@
                     <?php
                      if(isset($_SESSION['user'])){
                         echo "
-                                <li><a href='user_profile.php'> <img src='../images/user.png' class='profile'>  </a></li>
-                                 <li><a href='log_out.php'>Log out</a></li>    
+                                <li> <img src='".$profile."' class='profile'> 
+                                <ul class='drop-down'> 
+                                    <li> <a href='user_profile.php'> profile </a> </li>
+                                      <li><a href='log_out.php'>Log out</a></li>    
+                                 </ul>
+                               </li>
+                               
                             ";
                      }
                      else{
@@ -37,7 +46,7 @@
                     ?>
 				</ul>
 			</div>
-			<p id="toggle"> menu </p>
+			<p id="toggle"> <img src="../images/bars.png" alt=""> </p>
 		</nav>
 		</header>
 

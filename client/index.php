@@ -2,9 +2,16 @@
 	session_start();
 	require('../database_config/config.php');
 	
-	if(!isset($_SESSION['user']) && empty($_SESSION['user'])){
-		header('location:login.php');
+	if(!isset($_SESSION['user']) && isset($_COOKIE)){
+		$token = $_COOKIE['remember'];
+		$select_user  = "SELECT * FROM user WHERE remember_token = '$token'";
+		$user_query = $conn -> query($select_user);
+		if($user_query -> num_rows >0){
+			$user_data = mysqli_fetch_array($user_query);
+			$_SESSION['user'] = $user_data;
+		}
 	}
+
 ?>
 
 <!DOCTYPE HTML>
