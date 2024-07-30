@@ -1,6 +1,5 @@
 <?php 
   session_start();
-  $cart_conditional = isset($_SESSION['user']) ? 'add_to_cart.php?id=$data[product_id]' : 'login.php'  ; 
  
 ?>
 
@@ -42,9 +41,9 @@
                                                         <p>Band: $data[product_code]</p>
                                                     </div>
                                                     <p>Product Code : $data[product_code] </p>
-                                                <p>Stock : 100</p>
+                                                <p>Stock : $data[stored_product]</p>
 
-                                            <a href='".$cart_conditional."'> <button class='product_details_btn'>Add cart</button> </a>
+                                               <a href='" . (isset($_SESSION['user']) ? "add_to_cart.php?id={$data['product_id']}" : "login.php") . "'> <button class='product_details_btn'>Add cart</button> </a>
                                     </div>    
                                 ";
                         

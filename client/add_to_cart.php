@@ -5,6 +5,7 @@ require('../database_config/config.php');
 
 if (isset($_GET['id'])) {
     $product_id = $_GET['id'];
+    echo $product_id;
     $user_id = $_SESSION['user']['user_id'];
     $product_quantity = 1;
 

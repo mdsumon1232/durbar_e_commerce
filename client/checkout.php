@@ -29,11 +29,34 @@ if(isset($_POST['order'])){
     $product_ids = explode(',', $products_id);
 
     foreach ($product_ids as $product_id) {
+
+    //   stock product from database 
+    $product_stock = "SELECT * FROM product WHERE product_id = '$product_id'";
+    $stock_query = $conn -> query($product_stock);
+    $product_fetch = mysqli_fetch_array($stock_query);
+    $current_stock = $product_fetch['stored_product'];
+
+    // quantity from cart
+    $select_cart = "SELECT * FROM cart WHERE product_id = '$product_id'";
+    $cart_query = $conn -> query($select_cart);
+    $fetch_cart = mysqli_fetch_array($cart_query);
+    $carted_quantity = $fetch_cart['quantity'];
+    
+    $new_product_stock = $current_stock - $carted_quantity;
+
         $insert_data = "INSERT INTO product_orderd (product_id, user_id, city, street, house_no, full_name, phone, email) 
                         VALUES ('$product_id', '$user_id', '$city', '$street', '$house_no', '$full_name', '$number', '$email')";
         $insert_data_query = $conn->query($insert_data);
         if($insert_data_query){
+            // delete cart data 
+        $delete_cart = "DELETE From cart WHERE user_id = '$user_id'";
+        $conn -> query($delete_cart);
             header('location: order_done.php');
+            // new stock product update in database
+        
+            $stock_update = "UPDATE product SET stored_product = '$new_product_stock' WHERE product_id = '$product_id'";
+            $conn -> query($stock_update);
+
         } else {
             echo "Something went wrong while placing the order for product ID: $product_id<br>";
         }

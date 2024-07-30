@@ -22,21 +22,26 @@ require('../database_config/config.php');
             echo "<div class='cart_product_container'>";
             $sub_total = 0;
             $product_id = [];
-            while($fetch_product = mysqli_fetch_array($product_query)){
-                echo '
-                    <div class="product_details">
-                        <div class="product_img">
-                            <img src="'.$fetch_product['product_img'].'" >
+            if($product_query -> num_rows > 0){
+                while($fetch_product = mysqli_fetch_array($product_query)){
+                    echo '
+                        <div class="product_details">
+                            <div class="product_img">
+                                <img src="'.$fetch_product['product_img'].'" >
+                            </div>
+                            <div class="quantity_box">
+                                <p> '.$fetch_product['quantity'].' </p>
+                            </div>
+                            <h4 class="product_price">'. $fetch_product['product_price'] * $fetch_product['quantity'].' $</h4>
+                            <a href="cart_product_delete.php?id='.$fetch_product['cart_id'] .'" class="delete_btn">d</a>
                         </div>
-                        <div class="quantity_box">
-                            <p> '.$fetch_product['quantity'].' </p>
-                        </div>
-                        <h4 class="product_price">'. $fetch_product['product_price'] * $fetch_product['quantity'].' $</h4>
-                        <a href="cart_product_delete.php?id='.$fetch_product['cart_id'] .'" class="delete_btn">d</a>
-                    </div>
-                ';
-                $sub_total +=  $fetch_product['product_price'] * $fetch_product['quantity'];
-                $product_id[] = $fetch_product['product_id'];
+                    ';
+                    $sub_total +=  $fetch_product['product_price'] * $fetch_product['quantity'];
+                    $product_id[] = $fetch_product['product_id'];
+                }
+            }
+            else{
+                echo "<p> No product added to cart</p>";
             }
             echo "</div>";
 

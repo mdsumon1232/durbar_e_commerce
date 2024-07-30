@@ -9,11 +9,12 @@
 		$band = $_POST['band'];
 		$price = $_POST['price'];
 		$category =$_POST['category'];
+		$stock = $_POST['stock'];
 		$product_details = $_POST['product_details'];
 		$product_image_name = $_FILES['produce_image']['name'];
 		$product_image_tmp_name = $_FILES['produce_image']['tmp_name'];
 
-		if(empty($product_name) || empty($band) || empty($price) || empty($category) || empty($product_details) || empty($product_image_name) || empty($product_code)){
+		if(empty($product_name) || empty($band) || empty($price) || empty($category) || empty($product_details) || empty($product_image_name) || empty($product_code) || empty($stock)){
           $message ="All flied are required";
 		}
 		else{
@@ -28,7 +29,8 @@
 					$image_folder = "../images/". $product_image_name;
 					move_uploaded_file($product_image_tmp_name , $image_folder);
 				
-						$insert_data = "INSERT INTO product (product_name , product_band ,product_code,	product_price ,category_id,	product_details ,product_img) VALUES ('$product_name' , '$band' , '$product_code' , '$price' , '$category' ,'$product_details' , '$image_folder')";
+						$insert_data = "INSERT INTO product (product_name , product_band ,product_code,	product_price ,category_id,	product_details ,product_img ,stored_product) 
+										VALUES ('$product_name' , '$band' , '$product_code' , '$price' , '$category' ,'$product_details' , '$image_folder' , '$stock')";
 
 					$product_query = $conn -> query($insert_data);
 					
@@ -94,7 +96,10 @@
 						?>
 					 </select>
 					</div>
-				   
+				   <div class="form_item">
+						  <label for="">Stock</label>
+						  <input type="number" name="stock" placeholder="How many product are stocked">
+				   </div>
 				   <div class="form_item"> 
 						<label> Product Details :  </label>
 						<textarea  name="product_details"

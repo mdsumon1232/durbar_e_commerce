@@ -22,7 +22,7 @@
 			</div>
 			<div class="menu" id="menu">
 				<ul> 
-					<li> <a href="index.html"> Home </a> </li>
+					<li> <a href="index.php"> Home </a> </li>
 					<li> <a href=""> Ordered </a> </li>
 					<li> <a href=""> Cart </a> </li>
                     <?php
