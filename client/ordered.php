@@ -1,6 +1,10 @@
 <?php
         session_start();
-        require('../database_config/config.php')
+        require('../database_config/config.php');
+        
+        if(empty($_SESSION['user'])){
+            header('location:login.php');
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en">

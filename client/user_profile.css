@@ -12,7 +12,6 @@
   width: 30%;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid red;
 }
 
 .profile_image {
@@ -42,4 +41,17 @@
   text-align: center;
   width: 200px;
   padding: 10px 0;
+}
+
+/* responsive */
+
+@media screen and (max-width: 768px) {
+  .profile-details {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1100px) {
+  .profile-details {
+    width: 60%;
+  }
 }

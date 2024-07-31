@@ -12,6 +12,7 @@
     <title>user profile</title>
     <link rel="stylesheet" href="user_profile.css">
 </head>
+<?php  require('header.php') ?>
 <body>
     <section class="profile_container">
         <div class="profile-details">

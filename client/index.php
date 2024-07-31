@@ -2,7 +2,7 @@
 	session_start();
 	require('../database_config/config.php');
 	
-	if(!isset($_SESSION['user']) && isset($_COOKIE)){
+	if(!isset($_SESSION['user']) && isset($_COOKIE['remember'])){
 		$token = $_COOKIE['remember'];
 		$select_user  = "SELECT * FROM user WHERE remember_token = '$token'";
 		$user_query = $conn -> query($select_user);
