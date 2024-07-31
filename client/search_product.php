@@ -41,9 +41,9 @@
                    
 					<?php
                      
-				if(isset($_GET['id'])){
-					$category_id = $_GET['id'];
-					$select_product = "SELECT product .* , category.category FROM category INNER JOIN product ON product.category_id = category.id WHERE category_id = '$category_id'";
+				if(isset($_GET['search'])){
+					$product_name = $_GET['search'];
+					$select_product = "SELECT product .* , category.category FROM category INNER JOIN product ON product.category_id = category.id WHERE product_name = '$product_name'";
 					$product_query = $conn -> query($select_product);
 					if($product_query -> num_rows >0){
 					   while($product_data = mysqli_fetch_array($product_query)){
@@ -55,7 +55,7 @@
 								   <p> price: $product_data[product_price] $ </p>
 								   <p> Brand : $product_data[product_band] </p>
 								   <p> Category: $product_data[category] </p>
-								   <a href='product_details.php?id=$product_data[product_id]'> <button class='cart_btn'> Details </button> </a>
+								 <a href='product_details.php?id=$product_data[product_id]'> <button class='cart_btn'> Details </button> </a>
 								   </div>
 							   ";
 					   }

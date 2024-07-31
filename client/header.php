@@ -1,6 +1,13 @@
 
 <?php
   $profile = isset($_SESSION['user']['user_img']) ? $_SESSION['user']['user_img'] : '../images/user.png' ;
+
+
+  if(isset($_POST['search_btn'])){
+    $search = $_POST['search_text'];
+     header("location:search_product.php?search=" .$search);
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -16,15 +23,15 @@
 			<div class ="logo">
 				<h1> <a href="index.php"> durbar-commerce </a> </h1> </div>
 				<button id="search_btn"> search </button>
-				<div class="search-box" id="search_input"> 
-					<input type="text" placeholder="search here" >
-					<button class="search-btn"> search </button>
-			</div>
+				<form class="search-box" action="header.php" method="POST" id="search_input"> 
+					<input type="text" name="search_text" placeholder="search here" >
+					<button type="submit" name="search_btn" class="search-btn"> search </button>
+			</form>
 			<div class="menu" id="menu">
 				<ul> 
 					<li> <a href="index.php"> Home </a> </li>
-					<li> <a href=""> Ordered </a> </li>
-					<li> <a href=""> Cart </a> </li>
+					<li> <a href="ordered.php"> Ordered </a> </li>
+					<li> <a href="cart.php"> Cart </a> </li>
                     <?php
                      if(isset($_SESSION['user'])){
                         echo "

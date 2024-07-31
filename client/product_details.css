@@ -57,3 +57,31 @@
   letter-spacing: 1px;
   margin-top: 10px;
 }
+
+/* responsive */
+@media screen and (max-width: 576px) {
+  .product_detail_container {
+    width: 100%;
+    flex-direction: column;
+  }
+  .details_img {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .product_details {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 1024px) {
+  .product_detail_container {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .product_details {
+    margin-left: 10px;
+    flex: 1;
+  }
+}

@@ -21,7 +21,6 @@
 
                 if(isset($_GET['id'])){
                     $id = $_GET['id'];
-                    echo $id;
                     $select_product = "SELECT * FROM product WHERE product_id = '$id'";
                     $product_query = $conn -> query($select_product);
                     if($product_query -> num_rows > 0){
